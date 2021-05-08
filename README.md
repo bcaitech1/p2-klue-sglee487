@@ -2,23 +2,23 @@
 # P-stage 2 (KLUE)
 ## 문장 내 개체간 관계 추출
 
-![K-20210423-480169.png](K-20210423-480169.png)  
+![K-20210423-480169.png](files/K-20210423-480169.png)  
 
-<object data="부스트캠프 랩업 리포트 pstage2.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="부스트캠프 랩업 리포트 pstage2.pdf">
-        <p><a href="부스트캠프 랩업 리포트 pstage2.pdf">부스트캠프 랩업 리포트.pdf</a></p>
+<object data="files/부스트캠프 랩업 리포트 pstage2.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="files/부스트캠프 랩업 리포트 pstage2.pdf">
+        <p><a href="files/부스트캠프 랩업 리포트 pstage2.pdf">부스트캠프 랩업 리포트.pdf</a></p>
     </embed>
 </object>
 
-<object data="P-stage2 발표용.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="P-stage2 발표용.pdf">
-        <p><a href="P-stage2 발표용.pdf">피어세션 발표.pdf</a></p>
+<object data="files/P-stage2 발표용.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="files/P-stage2 발표용.pdf">
+        <p><a href="files/P-stage2 발표용.pdf">피어세션 발표.pdf</a></p>
     </embed>
 </object>  
 
 <li>관계 추출(Relation Extraction)은 문장의 단어(Entity)에 대한 속성과 관계를 예측하는 문제입니다. 관계 추출은 지식 그래프 구축을 위한 핵심 구성 요소로, 구조화된 검색, 감정 분석, 질문 답변하기, 요약과 같은 자연어처리 응용 프로그램에서 중요합니다. 비구조적인 자연어 문장에서 구조적인 triple을 추출해 정보를 요약하고, 중요한 성분을 핵심적으로 파악할 수 있습니다.</li>
 
-!['img1.png'](img1.png)
+!['img1.png'](files/img1.png)
 
 위 그림의 예시와 같이 요약된 정보를 사용해 QA 시스템 구축과 활용이 가능하며, 이외에도 요약된 언어 정보를 바탕으로 효율적인 시스템 및 서비스 구성이 가능합니다.
 
@@ -55,7 +55,7 @@ with open('./dataset/label_type.pkl', 'rb') as f:
 </code>
 </pre>
 <b>Data 예시</b>  
-![img.png](img.png)  
+![img.png](files/img.png)  
 <li>column 1: 데이터가 수집된 정보.</li>
 <li>column 2: sentence.</li>
 <li>column 3: entity 1</li>
@@ -103,7 +103,7 @@ class에 대한 정보는 위 label_type.pkl를 따라 주시기 바랍니다.
 <b>베이스라인 코드 설명</b>
 * 이번 competition의 베이스라인의 코드는 huggingface를 사용한 bert-base-multilingual-cased model을 바탕으로 작성 되었습니다.
 * 베이스라인에 사용한 전처리된 Dataset sample 입니다.sentence, entity01, entity02를 model의 input으로 입력 받아, 42개의 classes 중 1개를 예측하도록 합니다.
-![img_4.png](img_4.png)
+![img_4.png](files/img_4.png)
 * 간단하게 entity01, entity02, sentence를 special token인 [SEP]을 활용해 분리하고, model의 input으로 사용했습니다.
 * ※ 주어진 train.tsv 파일은 의도적으로 label을 포함하지 않은 raw dataset으로 제공합니다. baseline에서 벗어나 자유로운 시도를 하고 싶다면, 경우에 따라 label_type.pkl를 사용해 직접 전처리 작업을 하셔야 합니다.
 * ex) [CLS] entity01 [SEP] entity02 [SEP] sentence [SEP]
@@ -134,7 +134,7 @@ python inference.py --model_dir=./results/checkpoint-500
 
 제출할 csv 파일은 반드시 column명이 pred로 되어야 하며, 각 행은 예측된 classes 값들 입니다.
 
-![img_3.png](img_3.png)  
+![img_3.png](files/img_3.png)  
 
 
 ## 렙업 리포트
